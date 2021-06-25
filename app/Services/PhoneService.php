@@ -12,17 +12,17 @@ class PhoneService {
         $this->phoneRepository = $phoneRepository;
     }
 
-    public function store($array) {
+    public function store($data) {
 
         $phones = [];
-        if(is_array($array['phones']['phone'])){
-            foreach($array['phones']['phone'] as $phone){
-                $phones[] = $this->phoneRepository->create($this->parseData($array['personid'], $phone));
+        if(is_array($data['phones']['phone'])){
+            foreach($data['phones']['phone'] as $phone){
+                $phones[] = $this->phoneRepository->create($this->parseData($data['personid'], $phone));
             }
         }
 
-        if(!is_array($array['phones']['phone'])){
-            $phones[] = $this->phoneRepository->create($this->parseData($array['personid'], $array['phones']['phone']));
+        if(!is_array($data['phones']['phone'])){
+            $phones[] = $this->phoneRepository->create($this->parseData($data['personid'], $data['phones']['phone']));
         }
 
         return $phones;
