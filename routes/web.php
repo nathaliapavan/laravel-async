@@ -26,4 +26,5 @@ Route::post('custom-registration', [WebAuthController::class, 'customRegistratio
 Route::get('signout', [WebAuthController::class, 'signOut'])->name('signout');
 
 Route::get('file-upload', [FileUploadController::class, 'fileUpload'])->name('file.upload');
-Route::post('file-upload', [FileUploadController::class, 'fileUploadPost'])->name('file.upload.post');
+//Route::post('file-upload', [FileUploadController::class, 'fileUploadPost'])->name('file.upload.post');
+Route::post('file-upload', [FileUploadController::class, 'store'])->name('file.upload.post');
